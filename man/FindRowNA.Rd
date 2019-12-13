@@ -26,5 +26,7 @@ Identifies Number and Percentage of NAs By Row
 #EXAMPLE
 }
 x = matrix(rnorm(100), ncol = 10)
+x[2,3] <-NA #Adding Missing Value
+
 FindRowNA(x)
 }
