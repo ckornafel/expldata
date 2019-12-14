@@ -10,6 +10,6 @@ os:
   - osx
 
 r:
-  -3.4
-  -release
-  -devel
+  - oldrel
+  - release
+  - devel
