@@ -5,8 +5,9 @@ cache: packages
 warnings_are_errors: true
 
 os:
-  -osx
-  -windows
+  - windows
+  - linux
+  - osx
 
 r:
   -3.4
