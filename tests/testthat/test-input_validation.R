@@ -4,6 +4,7 @@ context("Input Validation")
 test_that("Functions accept only dataframe or matrix", {
 
   #Creating different structures for test
+  set.seed(1)
   df <- data.frame(replicate(10,sample(0:10, 10, replace = TRUE)))
   mat <- matrix(rnorm(100), ncol = 10)
   l <- list(a = 1:10, b = 1:10, c = 1:10)

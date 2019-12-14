@@ -13,10 +13,10 @@
 #'
 #' @import huxtable
 #'
-#' @examples \dontrun{
+#' @examples /dontrun{
 #' #EXAMPLE
 #' }
-#' df_type <- data.frame(num1 = rnorm(5),
+#' x <- data.frame(num1 = rnorm(5),
 #'            int2= c(1:5),
 #'            log3 = c(TRUE, TRUE, FALSE, FALSE, TRUE),
 #'            fac4 = letters[1:5])
@@ -28,9 +28,6 @@ ColType <- function(x, verbose = TRUE){
   ## Check for supported input types and values
   if (!(is.data.frame(x) || is.matrix(x) || is.double(x))) {
     stop("object must be of type: dataframe, matrix")
-  }
-  if(!(is.integer(n)||is.double(n) || is.null(n))){
-    stop("n must be of type: integer")
   }
   if(!is.logical(verbose)){
     stop("verbose must be of type: logical")

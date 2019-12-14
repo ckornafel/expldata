@@ -13,7 +13,8 @@ Description: This package provides easy to use functions that can
 Suggests: 
     knitr,
     rmarkdown,
-    testthat
+    testthat,
+    covr
 VignetteBuilder: knitr
 License: CC0
 Encoding: UTF-8

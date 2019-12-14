@@ -4,6 +4,8 @@ context("functional validation")
 test_that("Functions return expected output", {
   #Creating expected output for tests
 
+  set.seed(1)
+
   #Variables for RowValid, ColValid, RowSample, HasNA, FindColNA, FindRowNA
   df <- data.frame(replicate(10,sample(0:10, 10, replace = TRUE)))
   return_dfr_true <- data.frame("rows" = 10, "row_match" = TRUE)
@@ -19,10 +21,10 @@ test_that("Functions return expected output", {
                                      "Percent_of_Column" = colMeans(is.na(df_na)))
   rownames(return_HasColNA_true)<-c()
 
-  return_HasRowNA_true <- data.frame("Row" = colnames(df_na),
-                                     "NA_Count" =colSums(is.na(df_na)),
-                                     "Percent_of_Row" = colMeans(is.na(df_na)))
-  rownames(return_HasRowNA_true)<-c()
+  return_FindRowNA_true <- data.frame("Row" = c("2"),
+                                     "NA_Count" = 1,
+                                     "Percent_of_Row" = 0.1)
+
 
   #Variables for ColType
   df_type <- data.frame(num1 = rnorm(5),
@@ -39,7 +41,9 @@ test_that("Functions return expected output", {
                         log3 = c(TRUE, TRUE, FALSE, FALSE, TRUE),
                         chr4 = c("a", "a", "b","b", "c"),
                         fac5 = letters[1:5])
-  return_CountVal_true <- data.frame("Unique_Values" = c(5,2,3,5), "Duplicated_Values" = c(0,3,2,0))
+  return_CountVal_true <- data.frame("Column" = c("int2", "log3", "chr4", "fac5"),
+                                     "Unique_Values" = c(5,2,3,5),
+                                     "Duplicated_Values" = c(0,3,2,0))
 
   ################################### TESTS #######################################################
   #RowValid - Default Verbose
@@ -74,7 +78,7 @@ test_that("Functions return expected output", {
 
   #FindRowNA
   expect_output(FindRowNA(df), "Object does not have any missing values")
-  expect_equivalent(FindRowNA(df_na, verbose = FALSE), return_HasRowNA_true)
+  expect_equivalent(FindRowNA(df_na, verbose = FALSE), return_FindRowNA_true)
 
   #ColType
   expect_equivalent(ColType(df_type, verbose = FALSE), return_ColType_true)

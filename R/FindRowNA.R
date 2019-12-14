@@ -49,14 +49,17 @@ FindRowNA <- function(x, verbose = TRUE){
     #Storing Infor in dataframe
     r_na <- data.frame("Row" = row_names, "NA_Count" =rs,"Percent_of_Row" =rp)
 
-    #Subsetting to only Values
+    #Subsetting to non-zero Values
     r_na <- subset(r_na, NA_Count >0, select = c(Row, NA_Count, Percent_of_Row))
+
 
     #Determining to Print to Console
     if(!verbose){
       return(r_na)
 
     }else{
+
+
 
       #Formating % to String
       r_na$Percent_of_Row <- sprintf("%.1f %%", 100*r_na$Percent_of_Row)

@@ -5,7 +5,6 @@ cache: packages
 warnings_are_errors: true
 
 os:
-  - windows
   - linux
   - osx
 
@@ -13,3 +12,7 @@ r:
   - oldrel
   - release
   - devel
+
+
+after_success:
+  - Rscript -e 'covr::codecov()'
