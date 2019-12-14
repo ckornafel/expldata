@@ -8,6 +8,16 @@
 #' @return If verbose is FALSE results are returned via dataframe
 #' @export
 #'
+#' @importFrom huxtable as_huxtable
+#' @importFrom huxtable caption
+#' @importFrom huxtable caption_pos
+#' @importFrom huxtable right_padding
+#' @importFrom huxtable left_padding
+#' @importFrom huxtable bold
+#' @importFrom huxtable bottom_border
+#' @importFrom huxtable print_screen
+#'
+#'
 #' @examples \dontrun{
 #' #EXAMPLE
 #' }

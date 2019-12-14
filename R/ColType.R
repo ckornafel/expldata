@@ -11,6 +11,8 @@
 #' @return If verbose = FALSE, a dataframe of column object types
 #' @export
 #'
+#' @import huxtable
+#'
 #' @examples \dontrun{
 #' #EXAMPLE
 #' }
