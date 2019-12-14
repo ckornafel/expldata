@@ -7,6 +7,8 @@
 
 [![Travis build
 status](https://travis-ci.com/ckornafel/expldata.svg?branch=master)](https://travis-ci.com/ckornafel/expldata)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/ckornafel/expldata?branch=master&svg=true)](https://ci.appveyor.com/project/ckornafel/expldata)
 <!-- badges: end -->
 
 This package provides easy to use functions that can be used to perform
