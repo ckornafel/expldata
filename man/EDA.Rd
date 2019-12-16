@@ -4,7 +4,7 @@
 \alias{EDA}
 \title{Performs Multiple EDA Analyis Functions}
 \usage{
-EDA(x, expR = NULL, expC = NULL)
+EDA(x, expR = NULL, expC = NULL, plots = FALSE)
 }
 \arguments{
 \item{x}{A matrix-like R Object}
@@ -38,5 +38,7 @@ x <- data.frame("X1" = c(1,2,3,1,2,3),
                 "X3"= c("a","b","c","a","b","c"))
 
 EDA(x)
+
+plot_value <- EDA(x,plots = TRUE)
 }
 }

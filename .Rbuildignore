@@ -7,3 +7,7 @@
 ^codecov\.yml$
 =======
 >>>>>>> 193a19d7a05c69148142d703da7f819e0eaa1584
+^data-raw$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

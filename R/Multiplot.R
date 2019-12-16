@@ -1,8 +1,19 @@
-
-
-From: R Cookbook http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
-
-multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+#' Prints Multiple Plots from a List
+#'
+#' @description Function from From: R Cookbook
+#' @description http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
+#'
+#' @param ... Additional grid parameters
+#' @param plotlist List of ggplot objects
+#' @param file A file object
+#' @param cols Int for number of columns to display
+#' @param layout a grid object
+#'
+#' @return
+#' @export
+#' @import grid
+#'
+Multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
   library(grid)
 
   # Make a list from the ... arguments and plotlist
@@ -26,6 +37,7 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
     # Set up the page
     grid.newpage()
     pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+
 
     # Make each plot, in the correct location
     for (i in 1:numPlots) {

@@ -9,7 +9,7 @@
 #' @return Number of outliers
 #' @export
 #'
-IQR <-function(v, fence = 1){
+IQRange <-function(v, fence = 1){
 
   ########### Error Checks ####################################
 

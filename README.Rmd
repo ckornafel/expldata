@@ -47,6 +47,7 @@ devtools::install_github("ckornafel/MSDS696-EDAPackage")
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
+To 
 
 ```{r example}
 library(expldata)

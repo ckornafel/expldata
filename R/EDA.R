@@ -22,8 +22,10 @@
 #'                 "X3"= c("a","b","c","a","b","c"))
 #'
 #' EDA(x)
+#'
+#' plot_value <- EDA(x,plots = TRUE)
 #' }
-EDA <- function(x, expR = NULL, expC = NULL){
+EDA <- function(x, expR = NULL, expC = NULL, plots = FALSE){
 
   ########### Error Checks ####################################
 
@@ -81,6 +83,25 @@ EDA <- function(x, expR = NULL, expC = NULL){
   ht_col <-CreateHux(c_total, "Column Details")
   ht_col <- ht_col[order(ht_col$Col_Types),]
 
+  ################ Plot Information ######################################
+  #Position of any Factor Column
+  fact_pos<-NULL
+
+  for(c  in 1:ncol(x)){
+    if(is.factor(x[,c])){
+      fact_pos <- c(fact_pos,c)
+    }
+  }
+
+  col_data <- ifelse(length(fact_pos) == 1, fact_pos, NULL)
+
+  #Plots <- function(x, column, colorData=NULL, ptype = 1)
+  if(!is.null(col_data)) {
+    plot_eda <- lapply(colnames(x[,]), Plots, x = x, colorData = x[,col_data], ptype = 1)
+  }else{
+    plot_eda <- lapply(colnames(x[,]), Plots, x = x, ptype = 1)
+  }
+
   ################ Print Statements ######################################
 
   cat(paste("Name of Object:", deparse(substitute(x)), "\n"))
@@ -110,5 +131,9 @@ EDA <- function(x, expR = NULL, expC = NULL){
   print_screen(ht_col1, colnames = FALSE)
   cat("\n\n\n")
   print_screen(ht_col2, colnames = FALSE)
+
+  if(plots){
+    return(plot_eda)
+  }
 
 }

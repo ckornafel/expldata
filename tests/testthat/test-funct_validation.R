@@ -16,14 +16,21 @@ test_that("Functions return expected output", {
   #Variables for HasNA, FindColNA, FindRowNA
   df_na <- df
   df_na[2,2] <-NA #Missing Value Data Frame
-  return_HasColNA_true <- data.frame("Column" = colnames(df_na),
-                                     "NA_Count" =colSums(is.na(df_na)),
-                                     "Percent_of_Column" = colMeans(is.na(df_na)))
+
+  per_col <- c("0.00 %",  "10.00 %", "0.00 %",  "0.00 %",  "0.00 %",  "0.00 %",  "0.00 %",  "0.00 %",  "0.00 %",  "0.00 %")
+  return_HasColNA_true <- data.frame("Column" = as.factor(colnames(df_na)),
+                                     "NA_Count" = c(0,1,0,0,0,0,0,0,0,0),
+                                     "Percent_of_Column" = per_col,
+                                     stringsAsFactors = FALSE)
+
   rownames(return_HasColNA_true)<-c()
 
-  return_FindRowNA_true <- data.frame("Row" = c("2"),
+
+  return_FindRowNA_true <- data.frame("Row" = as.factor("2"),
                                      "NA_Count" = 1,
-                                     "Percent_of_Row" = 0.1)
+                                     "Percent_of_Row" = "10.000 %",
+                                     stringsAsFactors = FALSE)
+
 
 
   #Variables for ColType
@@ -73,7 +80,6 @@ test_that("Functions return expected output", {
   expect_equal(HasNA(df_na), TRUE)
 
   #FindColNA
-  expect_output(FindColNA(df), "Object does not have any missing values")
   expect_equivalent(FindColNA(df_na, verbose = FALSE), return_HasColNA_true)
 
   #FindRowNA

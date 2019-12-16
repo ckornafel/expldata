@@ -51,8 +51,8 @@ Out <- function(x, verbose = TRUE){
   num_df <- x[,num_col]
 
   #Calculating Number of Outliers at Each Fence
-  outer_outliers <-sapply(num_df, IQR, fence = 1)
-  inner_outliers <-sapply(num_df, IQR, fence = 2)
+  outer_outliers <-sapply(num_df, IQRange, fence = 1)
+  inner_outliers <-sapply(num_df, IQRange, fence = 2)
 
   #Correcting for Overlap in Outliers
   inner_outliers <- inner_outliers - outer_outliers

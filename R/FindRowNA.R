@@ -78,7 +78,13 @@ FindRowNA <- function(x, verbose = TRUE){
     }
 
   }else{
-    print("Object does not have any missing values")
+    if(verbose){
+      print("Object does not have any missing values")
+    }else{
+      return(data.frame("Row" = 0, "NA_Count" = 0, "Percent_of_Row" = "0.00%"))
+    }
+
+
   }
 
 
