@@ -9,11 +9,9 @@
 status](https://travis-ci.com/ckornafel/expldata.svg?branch=master)](https://travis-ci.com/ckornafel/expldata)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/ckornafel/expldata?branch=master&svg=true)](https://ci.appveyor.com/project/ckornafel/expldata)
-<<<<<<< HEAD
-[![Codecov test
+\<\<\<\<\<\<\< HEAD [![Codecov test
 coverage](https://codecov.io/gh/ckornafel/expldata/branch/master/graph/badge.svg)](https://codecov.io/gh/ckornafel/expldata?branch=master)
-=======
->>>>>>> 193a19d7a05c69148142d703da7f819e0eaa1584
+======= \>\>\>\>\>\>\> 193a19d7a05c69148142d703da7f819e0eaa1584
 <!-- badges: end -->
 
 This package provides easy to use functions that can be used to perform
@@ -45,6 +43,11 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(expldata)
+#> 
+#> Attaching package: 'expldata'
+#> The following object is masked from 'package:stats':
+#> 
+#>     IQR
 ## basic example code
 ```
 

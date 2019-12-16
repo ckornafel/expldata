@@ -1,7 +1,6 @@
 #' Determining Class Types of Each Column in an Object
 #'
-#' @description Displays the class of each column in a matrix
-#' @description or dataframe
+#' @description Displays the class of each column in a matrix or dataframe
 #' @description If Verbose = F, returns dataframe col names and class types
 #'
 #' @param x A matrix-like R object

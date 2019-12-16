@@ -8,15 +8,7 @@
 #' @return If verbose is FALSE results are returned via dataframe
 #' @export
 #'
-#' @importFrom huxtable as_huxtable
-#' @importFrom huxtable caption
-#' @importFrom huxtable caption_pos
-#' @importFrom huxtable right_padding
-#' @importFrom huxtable left_padding
-#' @importFrom huxtable bold
-#' @importFrom huxtable bottom_border
-#' @importFrom huxtable print_screen
-#'
+#' @import huxtable
 #'
 #' @examples \dontrun{
 #' #EXAMPLE
@@ -38,31 +30,29 @@ FindColNA <- function(x, verbose = TRUE){
   #Local Variables
   missing_values = sum(is.na(x)) #Total NAs in object
 
-  #Check for Any Missing Values
-  if(HasNA(x)){
+  if(is.null(colnames(x))){
+    col_names <- 1:ncol(x)
+  }else{
+    col_names <- colnames(x)
+  }
 
-    if(is.null(colnames(x))){
-      col_names <- 1:ncol(x)
-    }else{
-      col_names <- colnames(x)
-    }
+  #Counting NA's by Column
+  cs<-colSums(is.na(x))
 
-    #Counting NA's by Column
-    cs<-colSums(is.na(x))
+  #Calculating % if NA's by Column
+  cp<-colMeans(is.na(x))
 
-    #Calculating % if NA's by Column
-    cp<-colMeans(is.na(x))
+  c_na <- data.frame("Column" = col_names, "NA_Count" =cs,"NA_Percent" =cp)
 
-    c_na <- data.frame("Column" = col_names, "NA_Count" =cs,"Percent_of_Column" =cp)
 
-    #Determining to Print to Console
-    if(!verbose){
+  #Formating % to String
+  c_na$NA_Percent <- sprintf("%.2f %%", 100*c_na$NA_Percent)
+
+  #Determining to Print to Console
+  if(!verbose){
       return(c_na)
 
-    }else{
-
-      #Formating % to String
-      c_na$Percent_of_Column <- sprintf("%.1f %%", 100*c_na$Percent_of_Column)
+  }else{
 
       #Creating Huxtable Object
       ht_c <- as_huxtable(c_na, add_colnames = TRUE)
@@ -76,9 +66,6 @@ FindColNA <- function(x, verbose = TRUE){
       print_screen(ht_c, colnames = FALSE)
     }
 
-  }else{
-    print("Object does not have any missing values")
-  }
 
 
 }

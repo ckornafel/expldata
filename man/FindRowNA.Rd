@@ -12,14 +12,12 @@ FindRowNA(x, verbose = TRUE)
 \item{verbose}{Logical value to print results to console}
 }
 \value{
-The NA Row details
-
-If verbose is TRUE (default) the results are printed to screen
-
 If verbose is FALSE results are returned via dataframe
 }
 \description{
-Identifies Number and Percentage of NAs By Row
+Displays the count and % of total of NAs in a dataframe
+
+If Verbose = F, returns dataframe Row, NA_Count, Percent_of_Row
 }
 \examples{
 \dontrun{

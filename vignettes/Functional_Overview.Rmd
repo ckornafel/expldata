@@ -19,3 +19,12 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(expldata)
 ```
+
+```{r, fig.align = "center", fig.width = 6, out.width=100%}
+EDA(x)
+```
+
+```{r}
+multiplot(plotlist = abalone.plots[1:4])
+```
+

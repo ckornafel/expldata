@@ -15,9 +15,7 @@ ColType(x, verbose = TRUE)
 If verbose = FALSE, a dataframe of column object types
 }
 \description{
-Displays the class of each column in a matrix
-
-or dataframe
+Displays the class of each column in a matrix or dataframe
 
 If Verbose = F, returns dataframe col names and class types
 }
