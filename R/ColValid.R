@@ -12,12 +12,6 @@
 #' @return FALSE if number of columns does not match expected
 #' @export
 #'
-#' @examples /dontrun{
-#' m1 = matrix(rnorm(100), ncol = 10)
-#' ColValid(m1, 10)
-#'
-#' d2 <- ColValid(m1, n = 10, verbose = FALSE)
-#'}
 ColValid <- function(x, n = NULL, verbose = TRUE) {
 
   ########### Error Checks ####################################

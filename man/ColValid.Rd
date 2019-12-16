@@ -27,14 +27,6 @@ Returns number of columns if no parameter is used
 
 If Verbose = F, returns dataframe of columns and bool if match
 }
-\examples{
-/dontrun{
-m1 = matrix(rnorm(100), ncol = 10)
-ColValid(m1, 10)
-
-d2 <- ColValid(m1, n = 10, verbose = FALSE)
-}
-}
 \seealso{
 \code{\link{ncol}}
 }

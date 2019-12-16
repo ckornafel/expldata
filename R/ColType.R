@@ -12,14 +12,6 @@
 #'
 #' @import huxtable
 #'
-#' @examples /dontrun{
-#' #EXAMPLE
-#' }
-#' x <- data.frame(num1 = rnorm(5),
-#'            int2= c(1:5),
-#'            log3 = c(TRUE, TRUE, FALSE, FALSE, TRUE),
-#'            fac4 = letters[1:5])
-#' ColType(x)
 ColType <- function(x, verbose = TRUE){
 
   ########### Error Checks ####################################

@@ -19,16 +19,6 @@ Displays the class of each column in a matrix or dataframe
 
 If Verbose = F, returns dataframe col names and class types
 }
-\examples{
-/dontrun{
-#EXAMPLE
-}
-x <- data.frame(num1 = rnorm(5),
-           int2= c(1:5),
-           log3 = c(TRUE, TRUE, FALSE, FALSE, TRUE),
-           fac4 = letters[1:5])
-ColType(x)
-}
 \seealso{
 \code{\link{typeof,class}}
 }
