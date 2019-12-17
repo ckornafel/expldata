@@ -18,7 +18,6 @@
 #'
 #' SWNormality(x)
 #'
-#' value <- SWNormality(x, verbose = FALSE)
 #' }
 SWNormality <- function(x, verbose = TRUE){
 

@@ -26,7 +26,6 @@ x <- data.frame("Norm1" = c(11.2,8.2,10.0,27.3,14.5,26.4,4.2,15.2,14.5,26.7))
 
 SWNormality(x)
 
-value <- SWNormality(x, verbose = FALSE)
 }
 }
 \seealso{
