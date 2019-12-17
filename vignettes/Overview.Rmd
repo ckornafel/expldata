@@ -42,12 +42,12 @@ ColValid(example_df)
 ```
 **Expected Column Number Supplied**
 ```{r}
-ColValid(ExampleData, 7)
-ColValid(ExampleData, 2)
+ColValid(example_df, 7)
+ColValid(example_df, 2)
 ```
 **Verbose set to FALSE**
 ```{r}
-col_info <- ColValid(ExampleData, 7, verbose = FALSE)
+col_info <- ColValid(example_df, 7, verbose = FALSE)
 str(col_info)
 ```
 ## ColType

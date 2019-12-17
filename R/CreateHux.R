@@ -7,7 +7,7 @@
 #'
 #' @return A hux object
 #' @export
-#' @import huxtable
+#' @rawNamespace import(huxtable, except = theme_grey)
 #'
 CreateHux <- function(x,title){
 

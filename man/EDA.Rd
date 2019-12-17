@@ -12,6 +12,8 @@ EDA(x, expR = NULL, expC = NULL, plots = FALSE)
 \item{expR}{Interger of expected row number}
 
 \item{expC}{Integer of expected column number}
+
+\item{plots}{Logical value to produce plots}
 }
 \value{
 A list of ggplot2 plots

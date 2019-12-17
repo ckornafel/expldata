@@ -18,7 +18,7 @@ Multiplot(..., plotlist = NULL, file, cols = 1, layout = NULL)
 \item{layout}{a grid object}
 }
 \value{
-
+A list of plots
 }
 \description{
 Function from From: R Cookbook

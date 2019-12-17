@@ -32,5 +32,7 @@ value <- RowDup(x, verbose = FALSE)
 }
 }
 \seealso{
-\code{\link{unique, duplicated}}
+\code{\link{unique}}
+
+\code{\link{duplicated}}
 }

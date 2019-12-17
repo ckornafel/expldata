@@ -5,14 +5,16 @@
 #' percent of duplicated rows compared with the total rows, as well as
 #' the count of unique rows.
 #'
-#' @seealso \code{\link{unique, duplicated}}
+#' @seealso \code{\link{unique}}
+#' @seealso \code{\link{duplicated}}
+#'
 #' @param x A matrix-like R object
 #' @param verbose Logical operator
 #'
 #' @return A dataframe of results
 #' @export
 #'
-#' @import huxtable
+#' @rawNamespace import(huxtable, except = theme_grey)
 #'
 #' @examples \dontrun{
 #' x <- data.frame("X1" = c(1,2,3,1,2,3),
@@ -24,6 +26,9 @@
 #' value <- RowDup(x, verbose = FALSE)
 #' }
 RowDup<-function(x, verbose = TRUE){
+
+  ########### Global Variable Binding #########################
+  Duplicate_Rows <- Percent_Duplicate <- Unique_Rows <- NULL
 
    ########### Error Checks ####################################
 

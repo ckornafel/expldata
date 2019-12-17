@@ -37,5 +37,7 @@ CountVal(df_type)
 value <- CountVal(df_type, verbose = FALSE)
 }
 \seealso{
-\code{\link{unique, duplicated}}
+\code{\link{unique}}
+
+\code{\link{duplicated}}
 }

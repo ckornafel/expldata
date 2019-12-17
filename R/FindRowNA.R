@@ -9,7 +9,7 @@
 #' @return A dataframe of results
 #' @export
 #'
-#' @import huxtable
+#' @rawNamespace import(huxtable, except = theme_grey)
 #'
 #' @examples \dontrun{
 #' #EXAMPLE
@@ -20,6 +20,9 @@
 #'
 #' FindRowNA(x)
 FindRowNA <- function(x, verbose = TRUE){
+
+  ########### Global Variable Binding #########################
+  NA_Count <- Row <- Percent_of_Row <- NULL
   ########### Error Checks ####################################
 
   ##Check for supported input types and values

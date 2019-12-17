@@ -19,6 +19,9 @@
 #' RowValid(x, 10)
 RowValid <- function(x, n = NULL, verbose = TRUE) {
 
+   ########### Global Variable Binding #########################
+   cols <- NULL
+
 
    ########### Error Checks ####################################
 

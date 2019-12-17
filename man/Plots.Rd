@@ -9,11 +9,11 @@ Plots(x, column, colorData = NULL, ptype = 1)
 \arguments{
 \item{x}{A matrix-like R structure}
 
-\item{column}{chr of column name}
+\item{column}{A chr of column name}
 
-\item{colorData}{dataframe column to designate target}
+\item{colorData}{A dataframe column to designate target}
 
-\item{ptype}{int of plot type}
+\item{ptype}{A int of plot type}
 }
 \value{
 ggplot object
