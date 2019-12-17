@@ -4,15 +4,13 @@ language: R
 cache: packages
 
 before_install:
-  - tlmgr install index
+  - if [[ "$OSTYPE" != "linux-gnu" ]]; then sudo tlmgr install framed titling; fi
 os:
   - linux
   - osx
 
 r:
-  - oldrel
   - release
-  - devel
 
 
 after_success:
