@@ -11,6 +11,7 @@
 #' @return TRUE if number of rows matches expected
 #' @return FALSE if number of rows does not match expected
 #' @export
+#' @importFrom stats na.omit
 #' @examples \dontrun{
 #' #EXAMPLE
 #' }
