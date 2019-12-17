@@ -1,5 +1,8 @@
 comment: false
 
+language: R
+sudo: false
+cache: packages
 coverage:
   status:
     project:
@@ -12,3 +15,5 @@ coverage:
         threshold: 1%
 
 cat codecov.yml | curl --data-binary @- https://codecov.io/validate
+after_success:
+ - Rscropt -e 'covr:codecov()
