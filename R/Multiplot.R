@@ -9,12 +9,11 @@
 #' @param cols Int for number of columns to display
 #' @param layout a grid object
 #'
-#' @return
+#' @return A list of plots
 #' @export
 #' @import grid
 #'
 Multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
-  library(grid)
 
   # Make a list from the ... arguments and plotlist
   plots <- c(list(...), plotlist)

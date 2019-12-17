@@ -35,8 +35,14 @@ SWNormality <- function(x, verbose = TRUE){
   #Identifying numeric columns
   num_col <- unlist(lapply(x, is.numeric))
 
+  if(nrow(x)>4999){
+    x_sample <- RowSample(x,4999)
+  }else{
+    x_sample <- x
+  }
+
   #Applying the Shapiro-Wilk Normality Test
-  sw <- (lapply(x[,num_col], stats::shapiro.test))
+  sw <- (lapply(x_sample[,num_col], stats::shapiro.test))
 
   #Obtaining P-Values
   pVal <-c()

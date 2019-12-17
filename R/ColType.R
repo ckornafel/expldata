@@ -10,7 +10,7 @@
 #' @return If verbose = FALSE, a dataframe of column object types
 #' @export
 #'
-#' @import huxtable
+#' @rawNamespace import(huxtable, except = theme_grey)
 #'
 #' @examples
 #' df<- data.frame(col1 = c(1,2,3),

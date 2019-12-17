@@ -9,7 +9,8 @@
 #' @param x A matrix-like R object
 #' @param verbose Logical value to print results to console
 #'
-#' @seealso \code{\link{unique, duplicated}}
+#' @seealso \code{\link{unique}}
+#' @seealso \code{\link{duplicated}}
 #'
 #' @return If Verbose = TRUE, nothing returned
 #' @return If Verbose = FALSE, returns data frame of unique & dup values by column

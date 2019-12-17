@@ -7,14 +7,13 @@
 #' @description If ptype = 2, box plots will be produced
 #'
 #' @param x A matrix-like R structure
-#' @param column chr of column name
-#' @param colorData dataframe column to designate target
-#' @param ptype int of plot type
-#'
+#' @param column A chr of column name
+#' @param colorData A dataframe column to designate target
+#' @param ptype A int of plot type
 #' @return ggplot object
 #' @export
 #'
-#' @import ggplot2
+#' @importFrom ggplot2 ggplot geom_density xlab theme_minimal geom_boxplot aes_string
 #'
 #' @examples \dontrun{
 #' #EXAMPLE

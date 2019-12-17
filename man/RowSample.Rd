@@ -29,5 +29,5 @@ x = matrix(rnorm(100), ncol = 10)
 RowSample(x)
 }
 \seealso{
-\code{\link{sample, head, tail}}
+\code{\link{sample}}
 }

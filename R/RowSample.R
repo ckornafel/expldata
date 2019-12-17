@@ -11,7 +11,7 @@
 #'
 #' @return A dataframe
 #' @export
-#' @seealso \code{\link{sample, head, tail}}
+#' @seealso \code{\link{sample}}
 #' @examples \dontrun{
 #' #Obtain a Random Sample of Rows
 #' }

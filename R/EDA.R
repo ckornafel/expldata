@@ -11,10 +11,11 @@
 #' @param x A matrix-like R Object
 #' @param expR Interger of expected row number
 #' @param expC Integer of expected column number
-#'
+#' @param plots Logical value to produce plots
 #' @return A list of ggplot2 plots
 #' @export
-#' @import huxtable ggplot2
+#' @rawNamespace import(huxtable, except = theme_grey)
+#' @importFrom ggplot2 ggplot geom_density xlab theme_minimal geom_boxplot
 #'
 #' @examples \dontrun{
 #' x <- data.frame("X1" = c(1,2,3,1,2,3),
@@ -64,6 +65,7 @@ EDA <- function(x, expR = NULL, expC = NULL, plots = FALSE){
 
   #Column Information
 
+  c_num <- data.frame("Column" = colnames(x), "Position" = 1:ncol(x))
   #ColType <- function(x, verbose = TRUE)
   c_type <- ColType(x, verbose = FALSE)
   #FindColNA <- function(x, verbose = TRUE)
@@ -79,10 +81,11 @@ EDA <- function(x, expR = NULL, expC = NULL, plots = FALSE){
 
   #Combining All Column Results
   c_total <- Reduce(function(...) merge(..., all=TRUE),
-                    list(c_type,c_NA, c_dup, c_rng, c_nor, c_out))
+                    list(c_num,c_type,c_NA, c_dup, c_rng, c_nor, c_out))
 
 
-  ht_col <-CreateHux(c_total, "Column Details")
+  c_total_ordered <- c_total[order(c_total$Col_Types),]
+  ht_col <-CreateHux(c_total_ordered, "Column Details")
   #ht_col <- ht_col[order(ht_col$Col_Types),]
 
   ################ Plot Information ######################################
@@ -95,11 +98,11 @@ EDA <- function(x, expR = NULL, expC = NULL, plots = FALSE){
     }
   }
 
-  col_data <- ifelse(length(fact_pos) == 1, fact_pos, NULL)
+  #col_data <- ifelse(length(fact_pos) == 1, fact_pos, NULL)
 
   #Plots <- function(x, column, colorData=NULL, ptype = 1)
-  if(!is.null(col_data)) {
-    plot_eda <- lapply(colnames(x[,]), Plots, x = x, colorData = x[,col_data], ptype = 1)
+  if(length(fact_pos) == 1) {
+    plot_eda <- lapply(colnames(x[,]), Plots, x = x, colorData = x[,fact_pos], ptype = 1)
   }else{
     plot_eda <- lapply(colnames(x[,]), Plots, x = x, ptype = 1)
   }
@@ -131,7 +134,7 @@ EDA <- function(x, expR = NULL, expC = NULL, plots = FALSE){
   width(ht_col) <-0.2
   #col_width(ht_col) <- c(1,.5,.5,.75,.75,.75,.75,.5,.75,.75,.75)
   ht_col1 <- ht_col[,1:7]
-  ht_col2 <- ht_col[, c(1,7:13)]
+  ht_col2 <- ht_col[, c(1,8:14)]
   caption(ht_col2) <-NA
   print_screen(ht_col1, colnames = FALSE)
   cat("\n\n\n")

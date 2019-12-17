@@ -12,7 +12,7 @@
 #' @return A dataframe of results
 #'
 #' @export
-#' @import huxtable
+#' @rawNamespace import(huxtable, except = theme_grey)
 #'
 #' @examples \dontrun{
 #' x <- data.frame("X1" = c(71,70,73,70,70,69,70,72,71,300,71,69),

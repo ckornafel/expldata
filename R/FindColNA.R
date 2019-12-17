@@ -10,7 +10,7 @@
 #' @return A dataframe of results
 #' @export
 #'
-#' @import huxtable
+#' @rawNamespace import(huxtable, except = theme_grey)
 #'
 #' @examples \dontrun{
 #' #EXAMPLE
@@ -18,6 +18,7 @@
 #' x = matrix(rnorm(100), ncol = 10)
 #' FindColNA(x)
 FindColNA <- function(x, verbose = TRUE){
+
   ########### Error Checks ####################################
 
   ##Check for supported input types and values
