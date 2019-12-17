@@ -12,17 +12,18 @@ FindRowNA(x, verbose = TRUE)
 \item{verbose}{Logical value to print results to console}
 }
 \value{
-If verbose is FALSE results are returned via dataframe
+A dataframe of results
 }
 \description{
 Displays the count and % of total of NAs in a dataframe
 
-If Verbose = F, returns dataframe Row, NA_Count, Percent_of_Row
+If Verbose = F, returns dataframe with Row, NA_Count, Percent_of_Row
 }
 \examples{
 \dontrun{
 #EXAMPLE
 }
+set.seed(100)
 x = matrix(rnorm(100), ncol = 10)
 x[2,3] <-NA #Adding Missing Value
 

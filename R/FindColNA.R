@@ -1,11 +1,13 @@
 #' Identifies Number and Percentage of NAs By Column
 #'
+#' @description  The NA column details including the column name, the count
+#' of NA's for each column, and the percentage of each column those NA's
+#' represent
+#'
 #' @param x A matrix-like R object
 #' @param verbose Logical value to print results to console
 #'
-#' @return The NA column details
-#' @return If verbose is TRUE (default) the results are printed to screen
-#' @return If verbose is FALSE results are returned via dataframe
+#' @return A dataframe of results
 #' @export
 #'
 #' @import huxtable

@@ -1,14 +1,14 @@
 context("Input Validation")
 
+#Creating different structures for test
+set.seed(1)
+df <- data.frame(replicate(10,sample(0:10, 10, replace = TRUE)))
+mat <- matrix(rnorm(100), ncol = 10)
+l <- list(a = 1:10, b = 1:10, c = 1:10)
+i <- 1:10
 
 test_that("Functions accept only dataframe or matrix", {
 
-  #Creating different structures for test
-  set.seed(1)
-  df <- data.frame(replicate(10,sample(0:10, 10, replace = TRUE)))
-  mat <- matrix(rnorm(100), ncol = 10)
-  l <- list(a = 1:10, b = 1:10, c = 1:10)
-  i <- 1:10
 
   #RowValid - Negative
   expect_error(RowValid(l,10), "object must be of type: dataframe, matrix" )
@@ -41,6 +41,22 @@ test_that("Functions accept only dataframe or matrix", {
   #CountVal - Negative
   expect_error(CountVal(l), "object must be of type: dataframe, matrix" )
   expect_error(CountVal(i), "object must be of type: dataframe, matrix" )
+
+  #Out - Negative
+  expect_error(Out(l), "object must be of type: dataframe, matrix" )
+  expect_error(Out(i), "object must be of type: dataframe, matrix" )
+
+  #SWNormality - Negative
+  expect_error(SWNormality(l), "object must be of type: dataframe, matrix" )
+  expect_error(SWNormality(i), "object must be of type: dataframe, matrix" )
+
+  #RowDup - Negative
+  expect_error(RowDup(l), "object must be of type: dataframe, matrix" )
+  expect_error(RowDup(i), "object must be of type: dataframe, matrix" )
+
+  #Rng - Negative
+  expect_error(Rng(l), "object must be of type: dataframe, matrix" )
+  expect_error(Rng(i), "object must be of type: dataframe, matrix" )
 
 })
 
@@ -91,6 +107,22 @@ test_that("Functions accept only logical verbose", {
   #CountVal - Negative
   expect_error(CountVal(df, verbose = "a"), "verbose must be of type: logical")
   expect_error(CountVal(df, verbose = 1), "verbose must be of type: logical" )
+
+  #Out - Negative
+  expect_error(Out(df, verbose = "a"), "verbose must be of type: logical")
+  expect_error(Out(df, verbose = 1), "verbose must be of type: logical" )
+
+  #SWNormality - Negative
+  expect_error(SWNormality(df, verbose = "a"), "verbose must be of type: logical")
+  expect_error(SWNormality(df, verbose = 1), "verbose must be of type: logical" )
+
+  #RowDup - Negative
+  expect_error(RowDup(df, verbose = "a"), "verbose must be of type: logical")
+  expect_error(RowDup(df, verbose = 1), "verbose must be of type: logical" )
+
+  #Rng - Negative
+  expect_error(Rng(df, verbose = "a"), "verbose must be of type: logical")
+  expect_error(Rng(df, verbose = 1), "verbose must be of type: logical" )
 })
 
 

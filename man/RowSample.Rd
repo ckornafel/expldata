@@ -12,13 +12,14 @@ RowSample(x, n = 5)
 \item{n}{the number of random rows to display}
 }
 \value{
-If object row count exceeds supplied parameter or default value,
-  then the function returns a random sample of "n" rows. If object row
-  count is less than parameter or default, the function returns all
-  rows of the object.
+A dataframe
 }
 \description{
 Validates that the number of columns is equal to expected count
+If object row count exceeds supplied parameter or default value,
+then the function returns a random sample of "n" rows. If object row
+count is less than parameter or default, the function returns all
+rows of the object.
 }
 \examples{
 \dontrun{
@@ -28,5 +29,5 @@ x = matrix(rnorm(100), ncol = 10)
 RowSample(x)
 }
 \seealso{
-\code{\link{sample}}
+\code{\link{sample, head, tail}}
 }

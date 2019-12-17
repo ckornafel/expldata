@@ -12,10 +12,11 @@ Rng(x, verbose = TRUE)
 \item{verbose}{Logical operator}
 }
 \value{
-If verbose = FALSE, a dataframe of results
+A dataframe of results
 }
 \description{
-Determines maximum value and minimum value for each column
+Determines maximum value and minimum value for each numeric column
+as well as calculates the total range (spread) of the values. If multiple
 
 If verbose = TRUE, displays results to console
 
@@ -33,5 +34,5 @@ value <- Rng(x, verbose = FALSE)
 }
 }
 \seealso{
-\code{\link{range}}
+\code{\link{summary}}
 }

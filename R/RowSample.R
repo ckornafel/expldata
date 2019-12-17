@@ -1,15 +1,17 @@
 #' Random Row Sample
 #'
 #' @description Validates that the number of columns is equal to expected count
+#' If object row count exceeds supplied parameter or default value,
+#' then the function returns a random sample of "n" rows. If object row
+#' count is less than parameter or default, the function returns all
+#' rows of the object.
+#'
 #' @param x a matrix-like R object
 #' @param n the number of random rows to display
 #'
-#' @return If object row count exceeds supplied parameter or default value,
-#'   then the function returns a random sample of "n" rows. If object row
-#'   count is less than parameter or default, the function returns all
-#'   rows of the object.
+#' @return A dataframe
 #' @export
-#' @seealso \code{\link{sample}}
+#' @seealso \code{\link{sample, head, tail}}
 #' @examples \dontrun{
 #' #Obtain a Random Sample of Rows
 #' }

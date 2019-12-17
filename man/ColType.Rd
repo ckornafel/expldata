@@ -19,6 +19,15 @@ Displays the class of each column in a matrix or dataframe
 
 If Verbose = F, returns dataframe col names and class types
 }
+\examples{
+df<- data.frame(col1 = c(1,2,3),
+               col2 = c(1,2,3),
+               col3 = c(1,2,3))
+
+ColValid(df,n = 3)
+ColValid(df, n = 2)
+cf <- ColValid(df, n = 3, verbose = FALSE)
+}
 \seealso{
-\code{\link{typeof,class}}
+\code{\link{class}}
 }

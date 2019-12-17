@@ -12,14 +12,12 @@ FindColNA(x, verbose = TRUE)
 \item{verbose}{Logical value to print results to console}
 }
 \value{
-The NA column details
-
-If verbose is TRUE (default) the results are printed to screen
-
-If verbose is FALSE results are returned via dataframe
+A dataframe of results
 }
 \description{
-Identifies Number and Percentage of NAs By Column
+The NA column details including the column name, the count
+of NA's for each column, and the percentage of each column those NA's
+represent
 }
 \examples{
 \dontrun{

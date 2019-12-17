@@ -1,15 +1,18 @@
 #' Determines Inner and Outer IQR Fence Outlier Counts
 #'
-#' @description Determines number of values by column that fall
-#' @description inner and outer IQR Range Fences
+#' @description Determines number of values by column that fall between
+#' the inner and outer IQR Range Fences. The inner fence is 1.5 times the
+#' 1st and 3rd quartile and the outer fence is 3 times the distance.
 #' @description If verbose = TRUE, displays results to console
 #' @description If Verbose = FALSE, returns dataframe of results
 #'
 #' @param x A matrix-like R object
 #' @param verbose Logical operator
 #'
-#' @return If verbose = FALSE, a dataframe of results
+#' @return A dataframe of results
+#'
 #' @export
+#' @import huxtable
 #'
 #' @examples \dontrun{
 #' x <- data.frame("X1" = c(71,70,73,70,70,69,70,72,71,300,71,69),

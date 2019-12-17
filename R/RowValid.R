@@ -49,11 +49,14 @@ RowValid <- function(x, n = NULL, verbose = TRUE) {
                      n))
       }
    } else {
-      if (!is.null(n) && rows == n) {
+      if (!is.null(n) && cols == n) {
          matches <- TRUE
+      }else if (is.null(n)){
+         matches <- NA
       }
-      return(data.frame("rows" = rows, "row_match" = matches))
 
-   }
+   return(data.frame("rows" = rows, "row_match" = matches))
+
+}
 
 }

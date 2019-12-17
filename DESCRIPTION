@@ -24,4 +24,5 @@ URL: https://github.com/ckornafel/expldata
 BugReports: https://github.com/ckornafel/expldata/issues
 Imports: 
     huxtable,
-    stats
+    stats,
+    ggplot2

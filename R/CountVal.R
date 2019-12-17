@@ -1,8 +1,8 @@
 #' Count of Unique & Duplicated Values of Each Column
 #'
-#' @description Counts the number of unique and duplicated column values
-#' @description NA's are not included
-#' @description TRUE values are counted for Factors
+#' @description Counts the number of unique and duplicated values by
+#' column. Missing values (NA's) are omitted in the counts and TRUE
+#' values are counted for Factors.
 #' @description If Verbose = T, displays results to console
 #' @description If Verbose = F, returns dataframe of counts
 #'

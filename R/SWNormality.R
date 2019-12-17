@@ -1,10 +1,16 @@
 #' Performing Shapiro-Wilk Normality Test
 #'
+#' @description SWNormality applies the Shapiro-Wilk Normality test and
+#' returns the resulting p-values as well as an "english" translation
+#' if the null hypothesis can be rejected or not: TRUE/FALSE at the 95%
+#' confidence level.
+#'
 #' @param x A matrix-like R object
 #' @param verbose A logical indicator
 #'
 #' @return A dataframe of results
 #' @export
+#' @seealso \code{\link{shapiro.test}}
 #'
 #' @importFrom stats shapiro.test
 #' @examples \dontrun{

@@ -1,9 +1,15 @@
 #' Identifies Duplicate Rows in Object
 #'
+#' @description Identifiction of duplicated rows contained in the
+#' data set. Displaying a table of the count of duplicate rows, the
+#' percent of duplicated rows compared with the total rows, as well as
+#' the count of unique rows.
+#'
+#' @seealso \code{\link{unique, duplicated}}
 #' @param x A matrix-like R object
 #' @param verbose Logical operator
 #'
-#' @return If verbose = FALSE, a dataframe of results
+#' @return A dataframe of results
 #' @export
 #'
 #' @import huxtable
@@ -38,28 +44,26 @@ RowDup<-function(x, verbose = TRUE){
   }
 
   #Identifying Duplicated Rows in Object
-  dup_rows <- data.frame(duplicated(x[,1:ncol(x)]))
-  colnames(dup_rows) <-"Duplicate_Rows"
+  dup_rows <- sum(duplicated(x))
+
 
   #Calculating Duplicated Row Percentage
   dup_row_percent <- dup_rows/nrow(x)
-  colnames(dup_row_percent) <- "Percent_Duplicate"
+
 
   #Calculating Unique Row Count
-  unique_rows <- nrow(x)-dup_rows
-  colnames(unique_rows) <- "Unique_Rows"
+  unique_rows <- nrow(unique(x))
 
-  r_freq <- data.frame("Row" = row_names,
-                       "Duplicate_Rows" = dup_rows,
+
+  r_freq <- data.frame("Duplicate_Rows" = dup_rows,
                        "Percent_Duplicate" = dup_row_percent,
                        "Unique_Rows" = unique_rows)
 
   #Subsetting to only Duplicate Values
-  r_freq <- subset(r_freq, Duplicate_Rows >0, select = c(Row, Duplicate_Rows, Percent_Duplicate, Unique_Rows))
+  r_freq <- subset(r_freq, Duplicate_Rows >0, select = c(Duplicate_Rows, Percent_Duplicate, Unique_Rows))
 
   if(dim(r_freq)[1] == 0){
-  r_freq <- data.frame("Row" = "None",
-                         "Duplicate_Rows" = 0,
+    r_freq <- data.frame("Duplicate_Rows" = 0,
                          "Percent_Duplicate" = 0,
                          "Unique_Rows" = nrow(x))
   }

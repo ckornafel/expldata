@@ -14,7 +14,7 @@ EDA(x, expR = NULL, expC = NULL, plots = FALSE)
 \item{expC}{Integer of expected column number}
 }
 \value{
-
+A list of ggplot2 plots
 }
 \description{
 Performs multiple exploratory functions on dataframe
@@ -26,9 +26,7 @@ For Object - name, object class, and random sample of values
 For Rows - missing values, percent of total row, and duplicate rows
 
 For Columns - value type, missing values (count & percent),
-
 range (min, max, & spread), Shapiro-Wilk Normality (p-value and 95% determination),
-
 and count any outliers (inner and outer)
 }
 \examples{

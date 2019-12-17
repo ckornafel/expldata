@@ -15,7 +15,10 @@ SWNormality(x, verbose = TRUE)
 A dataframe of results
 }
 \description{
-Performing Shapiro-Wilk Normality Test
+SWNormality applies the Shapiro-Wilk Normality test and
+returns the resulting p-values as well as an "english" translation
+if the null hypothesis can be rejected or not: TRUE/FALSE at the 95%
+confidence level.
 }
 \examples{
 \dontrun{
@@ -25,4 +28,7 @@ SWNormality(x)
 
 value <- SWNormality(x, verbose = FALSE)
 }
+}
+\seealso{
+\code{\link{shapiro.test}}
 }

@@ -7,11 +7,11 @@
 ColValid(x, n = NULL, verbose = TRUE)
 }
 \arguments{
-\item{x}{a matrix-like R object}
+\item{x}{A matrix-like R object}
 
-\item{n}{number of expected rows}
+\item{n}{An integer representing expected columns}
 
-\item{verbose}{displays print statements if TRUE}
+\item{verbose}{A logical print statements if TRUE}
 }
 \value{
 The number of columns in object if no expected no is sent
@@ -21,11 +21,21 @@ TRUE if number of columns matches expected
 FALSE if number of columns does not match expected
 }
 \description{
-Validates the number of columns of an object
+Validates the number of columns of a loaded data object and
+compares it with the expected number of columns provided by the user. If the
+user does not provide the expected column parameter, then the function returns the
+number of columns.
 
-Returns number of columns if no parameter is used
+If Verbose = FALSE, returns dataframe of column count and logical
+}
+\examples{
+df<- data.frame(col1 = c(1,2,3),
+               col2 = c(1,2,3),
+               col3 = c(1,2,3))
 
-If Verbose = F, returns dataframe of columns and bool if match
+ColValid(df,n = 3)
+ColValid(df, n = 2)
+cf <- ColValid(df, n = 3, verbose = FALSE)
 }
 \seealso{
 \code{\link{ncol}}

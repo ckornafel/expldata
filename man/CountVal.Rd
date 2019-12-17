@@ -17,11 +17,9 @@ If Verbose = TRUE, nothing returned
 If Verbose = FALSE, returns data frame of unique & dup values by column
 }
 \description{
-Counts the number of unique and duplicated column values
-
-NA's are not included
-
-TRUE values are counted for Factors
+Counts the number of unique and duplicated values by
+column. Missing values (NA's) are omitted in the counts and TRUE
+values are counted for Factors.
 
 If Verbose = T, displays results to console
 

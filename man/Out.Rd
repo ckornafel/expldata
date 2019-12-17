@@ -12,12 +12,12 @@ Out(x, verbose = TRUE)
 \item{verbose}{Logical operator}
 }
 \value{
-If verbose = FALSE, a dataframe of results
+A dataframe of results
 }
 \description{
-Determines number of values by column that fall
-
-inner and outer IQR Range Fences
+Determines number of values by column that fall between
+the inner and outer IQR Range Fences. The inner fence is 1.5 times the
+1st and 3rd quartile and the outer fence is 3 times the distance.
 
 If verbose = TRUE, displays results to console
 

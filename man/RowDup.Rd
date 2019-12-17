@@ -12,10 +12,13 @@ RowDup(x, verbose = TRUE)
 \item{verbose}{Logical operator}
 }
 \value{
-If verbose = FALSE, a dataframe of results
+A dataframe of results
 }
 \description{
-Identifies Duplicate Rows in Object
+Identifiction of duplicated rows contained in the
+data set. Displaying a table of the count of duplicate rows, the
+percent of duplicated rows compared with the total rows, as well as
+the count of unique rows.
 }
 \examples{
 \dontrun{
@@ -27,4 +30,7 @@ RowDup(x)
 
 value <- RowDup(x, verbose = FALSE)
 }
+}
+\seealso{
+\code{\link{unique, duplicated}}
 }

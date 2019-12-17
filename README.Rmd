@@ -44,28 +44,32 @@ And the development version from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("ckornafel/MSDS696-EDAPackage")
 ```
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-To 
+## EDA / multiplot
+The EDA function is the multi-purpose tool of this package which is the main function of the package. EDA will perform every test contained in the package and display the results to the screen in an easy to read table. Additionally, if the plots parameter is set to TRUE, the function will return a list of ggplot2 density plots. An additional feature is that the function will determine if there is a single factor variable and assume that it is the dependent variable. This assumption will adjust the density plots to group and color code each of the factor levels for each plot. The plots can be displayed using the multiplot function also included in the package. 
 
 ```{r example}
 library(expldata)
-## basic example code
+library(huxtable)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-exp
+**Create Example DataFrame**
+```{r}
+set.seed(100)
+example_df <- data.frame(replicate(5,sample(0:10, 10, replace = TRUE)))
+example_df$X10 <- as.factor(c(TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE))
+example_df$X11 <- c("a","b","c","d","a","b","c","d","a","b")
+colnames(example_df)<- c("Num1","Num2","Num3","Num4","Num5","Fact1","Char1")
+str(example_df)
+```
+```{r}
+examplePlots <- EDA(example_df, plots = TRUE)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
+## Multiplot
+The multiplot function is one that was adapted from Winston Chang in his R Graphics Cookbook (http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/). This function will print several plots stored in a list and display them to the viewer. The multiplot function can also accept addition grid parameters if the user would like to customize the displayed output. 
+```{r echo=FALSE, message=FALSE, results='hide'}
+Multiplot(plotlist = examplePlots[1]) #Displaying the first  plot from the list generated in the above example
 ```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+```{r echo=FALSE, message=FALSE, results='hide'}
+Multiplot(plotlist = examplePlots[2:3]) #Displating second and third plot
+```

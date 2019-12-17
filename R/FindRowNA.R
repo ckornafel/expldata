@@ -1,12 +1,12 @@
 #' Identifies Number and Percentage of NAs By Row
 #'
 #' @description Displays the count and % of total of NAs in a dataframe
-#' @description If Verbose = F, returns dataframe Row, NA_Count, Percent_of_Row
+#' @description If Verbose = F, returns dataframe with Row, NA_Count, Percent_of_Row
 #'
 #' @param x A matrix-like R object
 #' @param verbose Logical value to print results to console
 #'
-#' @return If verbose is FALSE results are returned via dataframe
+#' @return A dataframe of results
 #' @export
 #'
 #' @import huxtable
@@ -14,6 +14,7 @@
 #' @examples \dontrun{
 #' #EXAMPLE
 #' }
+#' set.seed(100)
 #' x = matrix(rnorm(100), ncol = 10)
 #' x[2,3] <-NA #Adding Missing Value
 #'

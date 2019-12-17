@@ -2,7 +2,7 @@
 #'
 #' @description Function to generate ggplot objects using lapply
 #' @description If the data frame contains a single factor column
-#' @description the plot will assume it as the dependent variable
+#' the plot will assume it as the dependent variable
 #' @description If ptype = 1, density plots will be produced
 #' @description If ptype = 2, box plots will be produced
 #'
@@ -24,7 +24,6 @@
 #'                 "F3"= c("male","female","male","female","male","male"))
 #'
 #' plot_density <- lapply(colnames(x), Plots, x = x, colorData = x$F3, ptype = 1 )
-#'
 Plots <- function(x, column, colorData=NULL, ptype = 1){
   if(ptype == 1){
     ggplot(x, aes_string(x=column, color=colorData)) +

@@ -6,12 +6,20 @@
 #' @param x A matrix-like R object
 #' @param verbose Logical value to print results to console
 #'
-#' @seealso \code{\link{typeof,class}}
+#' @seealso \code{\link{class}}
 #' @return If verbose = FALSE, a dataframe of column object types
 #' @export
 #'
 #' @import huxtable
 #'
+#' @examples
+#' df<- data.frame(col1 = c(1,2,3),
+#'                col2 = c(1,2,3),
+#'                col3 = c(1,2,3))
+#'
+#' ColValid(df,n = 3)
+#' ColValid(df, n = 2)
+#' cf <- ColValid(df, n = 3, verbose = FALSE)
 ColType <- function(x, verbose = TRUE){
 
   ########### Error Checks ####################################

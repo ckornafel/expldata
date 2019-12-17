@@ -22,7 +22,6 @@ ggplot object
 Function to generate ggplot objects using lapply
 
 If the data frame contains a single factor column
-
 the plot will assume it as the dependent variable
 
 If ptype = 1, density plots will be produced
@@ -38,5 +37,4 @@ x <- data.frame("X1" = c(1,2,3,1,2,3),
                 "F3"= c("male","female","male","female","male","male"))
 
 plot_density <- lapply(colnames(x), Plots, x = x, colorData = x$F3, ptype = 1 )
-
 }

@@ -5,16 +5,16 @@
 #' @description For Object - name, object class, and random sample of values
 #' @description For Rows - missing values, percent of total row, and duplicate rows
 #' @description For Columns - value type, missing values (count & percent),
-#' @description range (min, max, & spread), Shapiro-Wilk Normality (p-value and 95% determination),
-#' @description and count any outliers (inner and outer)
+#' range (min, max, & spread), Shapiro-Wilk Normality (p-value and 95% determination),
+#' and count any outliers (inner and outer)
 #'
 #' @param x A matrix-like R Object
 #' @param expR Interger of expected row number
 #' @param expC Integer of expected column number
 #'
-#' @return
+#' @return A list of ggplot2 plots
 #' @export
-#' @import huxtable
+#' @import huxtable ggplot2
 #'
 #' @examples \dontrun{
 #' x <- data.frame("X1" = c(1,2,3,1,2,3),
@@ -47,7 +47,7 @@ EDA <- function(x, expR = NULL, expC = NULL, plots = FALSE){
      #ColValid <- function(x, n = NULL, verbose = TRUE)
   load_valid <- cbind(RowValid(x,expR,verbose = FALSE),
                       ColValid(x,expC,verbose = FALSE))
-
+  ht_lv <- CreateHux(load_valid, "Data Loading Information")
 
   #Sample
   samp <- RowSample(x)
@@ -74,14 +74,16 @@ EDA <- function(x, expR = NULL, expC = NULL, plots = FALSE){
   c_nor <- SWNormality(x, verbose = FALSE)
   #Out <- function(x, verbose = TRUE)
   c_out <- Out(x,verbose = FALSE)
+  #CountVal <- function(x, verbose = TRUE)
+  c_dup <- CountVal(x, verbose = FALSE)
 
   #Combining All Column Results
   c_total <- Reduce(function(...) merge(..., all=TRUE),
-                    list(c_type,c_NA, c_rng, c_nor, c_out))
+                    list(c_type,c_NA, c_dup, c_rng, c_nor, c_out))
 
 
   ht_col <-CreateHux(c_total, "Column Details")
-  ht_col <- ht_col[order(ht_col$Col_Types),]
+  #ht_col <- ht_col[order(ht_col$Col_Types),]
 
   ################ Plot Information ######################################
   #Position of any Factor Column
@@ -107,6 +109,9 @@ EDA <- function(x, expR = NULL, expC = NULL, plots = FALSE){
   cat(paste("Name of Object:", deparse(substitute(x)), "\n"))
   cat(paste("Class of Object:", class(x),"\n\n"))
 
+  print_screen(ht_lv, colnames = FALSE)
+  cat("\n\n\n")
+
   #RowSample RowSample <- function(x, n = 5)
   cat(" \n" )
   print_screen(ht_samp, colnames = FALSE)
@@ -125,8 +130,8 @@ EDA <- function(x, expR = NULL, expC = NULL, plots = FALSE){
   font_size(ht_col) <- 0.1
   width(ht_col) <-0.2
   #col_width(ht_col) <- c(1,.5,.5,.75,.75,.75,.75,.5,.75,.75,.75)
-  ht_col1 <- ht_col[,1:6]
-  ht_col2 <- ht_col[, c(1,7:11)]
+  ht_col1 <- ht_col[,1:7]
+  ht_col2 <- ht_col[, c(1,7:13)]
   caption(ht_col2) <-NA
   print_screen(ht_col1, colnames = FALSE)
   cat("\n\n\n")

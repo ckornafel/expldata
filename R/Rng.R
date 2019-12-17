@@ -1,15 +1,16 @@
 #' Identifies Max, Min, and Spread of Numeric Columns
 #'
-#' @description Determines maximum value and minimum value for each column
+#' @description Determines maximum value and minimum value for each numeric column
+#' as well as calculates the total range (spread) of the values. If multiple
 #' @description If verbose = TRUE, displays results to console
 #' @description If Verbose = FALSE, returns dataframe of results
 #'
 #' @param x A matrix-like R object
 #' @param verbose Logical operator
 #'
-#' @seealso \code{\link{range}}
+#' @seealso \code{\link{summary}}
 #'
-#' @return If verbose = FALSE, a dataframe of results
+#' @return A dataframe of results
 #' @export
 #'
 #' @import huxtable
